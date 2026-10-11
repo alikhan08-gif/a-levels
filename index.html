@@ -1,0 +1,1784 @@
+<!doctype html>
+<html lang="uz" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>A-Level Kimyo | Kimyo A-Level</title>
+    <meta
+      name="description"
+      content="A-level Kimyo va Kimyo A-level fanidan noldan xalqaro darajagacha tayyorlaning. 50% ustama va OTM grantiga ega bo'ling. Onlayn kurslar."
+    />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              navy: {
+                900: '#0B132B',
+                800: '#1C2541',
+                700: '#2A365B',
+              },
+              gold: {
+                400: '#F4D068',
+                500: '#D4AF37',
+                600: '#AA820A',
+              },
+              beige: {
+                100: '#FDFBF7',
+                200: '#F4EFE6',
+              },
+            },
+            fontFamily: {
+              serif: ['Playfair Display', 'serif'],
+              sans: ['Inter', 'sans-serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        background-color: #0b132b;
+        color: #fdfbf7;
+        font-family: 'Inter', sans-serif;
+        overflow-x: hidden;
+      }
+
+      .font-serif-title {
+        font-family: 'Playfair Display', serif;
+      }
+
+      .glass-panel {
+        background: rgba(28, 37, 65, 0.55);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid rgba(212, 175, 55, 0.15);
+      }
+
+      .glass-card {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .glass-card:hover {
+        border-color: rgba(212, 175, 55, 0.4);
+        transform: translateY(-6px);
+        box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+      }
+
+      .book-container {
+        perspective: 1000px;
+      }
+
+      .book-3d {
+        transform-style: preserve-3d;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        box-shadow: -15px 15px 30px rgba(0, 0, 0, 0.6);
+      }
+
+      .book-container:hover .book-3d {
+        transform: rotateY(-18deg) rotateX(8deg) translateZ(10px);
+      }
+
+      .text-gold-gradient {
+        background: linear-gradient(
+          135deg,
+          #fff099 0%,
+          #d4af37 50%,
+          #997a15 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      #preloader.fade-out {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.8s ease;
+      }
+
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0b132b;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #1c2541;
+        border-radius: 4px;
+        border: 1px solid rgba(212, 175, 55, 0.2);
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #d4af37;
+      }
+
+      @keyframes tapEffect {
+        0%,
+        100% {
+          transform: scale(1) translateY(0);
+          opacity: 0.8;
+        }
+        50% {
+          transform: scale(0.85) translateY(6px);
+          opacity: 1;
+        }
+      }
+
+      .animate-tap {
+        animation: tapEffect 1.2s infinite ease-in-out;
+      }
+
+      /* Scroll Animation Classes */
+      .reveal {
+        opacity: 0;
+        transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+      .reveal-fade-up {
+        transform: translateY(40px);
+      }
+      .reveal-fade-left {
+        transform: translateX(-40px);
+      }
+      .reveal-fade-right {
+        transform: translateX(40px);
+      }
+      .reveal-zoom {
+        transform: scale(0.9);
+      }
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0) translateX(0) scale(1);
+      }
+    </style>
+  </head>
+  <body class="antialiased selection:bg-gold-500 selection:text-navy-900">
+    <!-- Progress Bar -->
+    <div
+      id="scroll-progress"
+      class="fixed top-0 left-0 h-1 bg-gradient-to-r from-gold-600 via-gold-400 to-amber-200 z-50 transition-all duration-150"
+      style="width: 0%"
+    ></div>
+
+    <!-- Preloader -->
+    <div
+      id="preloader"
+      class="fixed inset-0 bg-navy-900 z-50 flex flex-col items-center justify-center transition-opacity duration-700"
+    >
+      <div class="text-center px-4">
+        <h1
+          class="font-serif-title text-3xl md:text-5xl text-gold-gradient tracking-widest uppercase mb-3 animate-pulse"
+        >
+          Abduraufxon Xalimxonov
+        </h1>
+        <p
+          data-i18n="preloader-sub"
+          class="text-xs md:text-sm text-beige-200/60 tracking-[0.3em] uppercase"
+        >
+          Professional A-level kursi experti
+        </p>
+      </div>
+    </div>
+
+    <!-- Navbar -->
+    <nav
+      id="navbar"
+      class="fixed top-0 left-0 w-full z-40 transition-all duration-300 py-5"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between"
+      >
+        <!-- Logo -->
+        <a href="#" class="flex flex-col">
+          <span
+            class="font-serif-title text-xl md:text-2xl font-bold tracking-tight text-white"
+          >
+            A-LEVEL KIMYO
+          </span>
+          <span
+            data-i18n="nav-logo-sub"
+            class="text-[9px] tracking-[0.25em] text-gold-500 uppercase font-medium"
+          >
+            Maxsus A-level Kurslar
+          </span>
+        </a>
+
+        <!-- Menu -->
+        <div
+          class="hidden lg:flex items-center space-x-8 text-base font-normal text-beige-200/80"
+        >
+          <a
+            href="#about"
+            data-i18n="nav-about"
+            class="hover:text-gold-500 transition-colors"
+            >O‘qituvchi Haqida</a
+          >
+          <a
+            href="#courses"
+            data-i18n="nav-courses"
+            class="hover:text-gold-500 transition-colors"
+            >Kurslar</a
+          >
+          <a
+            href="#books"
+            data-i18n="nav-books"
+            class="hover:text-gold-500 transition-colors"
+            >Kutubxona</a
+          >
+          <a
+            href="#resources"
+            data-i18n="nav-resources"
+            class="hover:text-gold-500 transition-colors"
+            >Namunaviy Darslar</a
+          >
+        </div>
+
+        <!-- Language Switcher & Action Button -->
+        <div class="hidden lg:flex items-center space-x-4">
+          <!-- Lang Switcher -->
+          <div
+            class="flex items-center bg-navy-800 border border-gold-500/30 rounded-full p-1 text-xs font-semibold"
+          >
+            <button
+              id="lang-uz-desktop"
+              onclick="setLanguage('uz')"
+              class="px-3 py-1 rounded-full bg-gold-500 text-navy-900 transition-all"
+            >
+              UZ
+            </button>
+            <button
+              id="lang-en-desktop"
+              onclick="setLanguage('en')"
+              class="px-3 py-1 rounded-full text-beige-200 hover:text-gold-400 transition-all"
+            >
+              EN
+            </button>
+          </div>
+
+          <a
+            href="#contact"
+            data-i18n="nav-cta"
+            class="px-6 py-2.5 rounded-full border border-gold-500/40 text-gold-400 text-xs tracking-wider uppercase font-semibold hover:bg-gold-500 hover:text-navy-900 transition-all duration-300"
+          >
+            Kursga qo'shilish
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button
+          id="menu-btn"
+          class="lg:hidden text-beige-200 focus:outline-none"
+        >
+          <i class="fa-solid fa-bars text-2xl"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden lg:hidden glass-panel border-t border-gold-500/20 px-6 py-6 mt-4 space-y-4 text-center"
+      >
+        <a
+          href="#about"
+          data-i18n="nav-about"
+          class="block text-beige-200 hover:text-gold-500 py-1"
+          >O‘qituvchi Haqida</a
+        >
+        <a
+          href="#courses"
+          data-i18n="nav-courses"
+          class="block text-beige-200 hover:text-gold-500 py-1"
+          >Kurslar</a
+        >
+        <a
+          href="#books"
+          data-i18n="nav-books"
+          class="block text-beige-200 hover:text-gold-500 py-1"
+          >Kutubxona</a
+        >
+        <a
+          href="#resources"
+          data-i18n="nav-resources"
+          class="block text-beige-200 hover:text-gold-500 py-1"
+          >Namunaviy Darslar</a
+        >
+        <div class="flex justify-center items-center space-x-2 pt-2">
+          <button
+            id="lang-uz-mobile"
+            onclick="setLanguage('uz')"
+            class="text-gold-400 font-bold text-xs uppercase px-2 py-0.5 rounded bg-gold-500/10"
+          >
+            UZ
+          </button>
+          <span class="text-beige-200/40 text-xs">|</span>
+          <button
+            id="lang-en-mobile"
+            onclick="setLanguage('en')"
+            class="text-beige-200/60 text-xs uppercase px-2 py-0.5"
+          >
+            EN
+          </button>
+        </div>
+        <a
+          href="#contact"
+          data-i18n="nav-cta"
+          class="inline-block mt-2 px-6 py-2.5 rounded-full bg-gold-500 text-navy-900 font-semibold text-xs tracking-wider uppercase"
+        >
+          Kursga qo'shilish
+        </a>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="relative min-h-screen pt-32 pb-20 flex items-center justify-center overflow-hidden"
+    >
+      <div
+        class="absolute top-1/4 left-10 w-96 h-96 bg-gold-500/10 rounded-full blur-[120px] pointer-events-none"
+      ></div>
+      <div
+        class="absolute bottom-10 right-10 w-96 h-96 bg-navy-700/30 rounded-full blur-[100px] pointer-events-none"
+      ></div>
+
+      <div
+        class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10"
+      >
+        <div class="lg:col-span-7 space-y-6 reveal reveal-fade-left">
+          <div
+            class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-gold-500/30 bg-gold-500/5 text-gold-400 text-xs tracking-widest uppercase font-medium"
+          >
+            <span class="w-2 h-2 rounded-full bg-gold-500 animate-ping"></span>
+            <span data-i18n="hero-badge"
+              >Xalqaro sertifikat GRE, SAT va A-Level boʻyicha ekspert</span
+            >
+          </div>
+
+          <h1
+            class="font-serif-title text-4xl sm:text-6xl xl:text-7xl font-bold text-white leading-[1.1]"
+          >
+            <span data-i18n="hero-title-1">A-LEVEL BILAN</span><br />
+            <span data-i18n="hero-title-2" class="text-gold-gradient italic"
+              >50% USTAMA VA OTM GRANTIGA ERISHING!
+            </span>
+          </h1>
+
+          <p
+            data-i18n="hero-desc"
+            class="text-beige-200/70 text-base md:text-lg max-w-xl font-light leading-relaxed"
+          >
+            Xalqaro A-Level sertifikati — Kimyo va Biologiya fani
+            Oʻqituvchilariga 50% ustama, abituriyentlarga esa Oʻzbekiston va
+            chet eldagi eng nufuzli universitetlarda grant asosida oʻqish
+            imkonini beradi. Darslarimiz va natijalarimiz bilan tanishib,
+            Xalqaro A-Level imtihoniga noldan yoki intensiv tayyorlanishni
+            boshlang!
+          </p>
+
+          <div class="pt-4 flex flex-wrap gap-4">
+            <a
+              href="#courses"
+              class="px-8 py-4 rounded-full bg-gradient-to-r from-gold-500 to-gold-600 text-navy-900 font-semibold text-sm tracking-wider uppercase hover:shadow-lg hover:shadow-gold-500/20 transition-all duration-300 hover:scale-105"
+            >
+              <span data-i18n="hero-btn-courses">Kurslarni Ko‘rish</span>
+              <i class="fa-solid fa-arrow-right ml-2 text-xs"></i>
+            </a>
+            <a
+              href="#about"
+              data-i18n="hero-btn-teacher"
+              class="px-8 py-4 rounded-full border border-white/20 text-white font-medium text-sm tracking-wider uppercase hover:bg-white/5 transition-all duration-300 hover:scale-105"
+            >
+              Teacher Abduraufxon Kim o'zi?
+            </a>
+          </div>
+        </div>
+
+        <div
+          class="lg:col-span-5 relative flex justify-center reveal reveal-fade-right"
+        >
+          <div
+            class="absolute inset-0 rounded-full border border-gold-500/20 animate-spin-slow pointer-events-none scale-110"
+          ></div>
+
+          <div
+            class="relative w-full max-w-md aspect-[4/5] rounded-2xl overflow-hidden border border-gold-500/30 shadow-2xl bg-navy-800 hover:scale-102 transition-transform duration-500"
+          >
+            <img
+              src="firs.png"
+              alt="Tr. Abduraufxon Xalimxonov"
+              class="w-full h-full object-cover object-center hover:scale-105 transition-transform duration-700"
+            />
+            <div
+              class="absolute inset-0 bg-gradient-to-t from-navy-900 via-transparent to-transparent"
+            ></div>
+          </div>
+
+          <div
+            class="absolute -top-4 -left-4 glass-panel px-4 py-3 rounded-xl border border-gold-500/30 flex items-center space-x-3 shadow-xl hover:scale-105 transition-transform"
+          >
+            <div
+              class="w-10 h-10 rounded-lg bg-gold-500/20 flex items-center justify-center text-gold-400"
+            >
+              <i class="fa-solid fa-award text-lg"></i>
+            </div>
+            <div>
+              <div
+                data-i18n="badge-teacher"
+                class="text-xs text-beige-200/60 uppercase"
+              >
+                O‘qituvchi
+              </div>
+              <div
+                data-i18n="badge-expert"
+                class="text-sm font-bold text-white"
+              >
+                A-Level Eksperti
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="absolute top-1/2 -right-6 glass-panel px-5 py-3 rounded-xl border border-gold-500/30 shadow-xl hidden sm:flex items-center space-x-3 hover:scale-105 transition-transform"
+          >
+            <div class="text-2xl font-serif-title font-bold text-gold-400">
+              5+
+            </div>
+            <div
+              data-i18n="stat-exp"
+              class="text-xs text-beige-200/80 leading-tight"
+            >
+              Yillik<br />Tajriba
+            </div>
+          </div>
+
+          <div
+            class="absolute -bottom-6 left-6 glass-panel px-6 py-4 rounded-xl border border-gold-500/30 shadow-xl flex items-center space-x-6 hover:scale-105 transition-transform"
+          >
+            <div>
+              <div class="text-xl font-serif-title font-bold text-white">
+                500+
+              </div>
+              <div
+                data-i18n="stat-students"
+                class="text-[10px] uppercase tracking-wider text-beige-200/60"
+              >
+                O‘quvchilar
+              </div>
+            </div>
+            <div class="w-px h-8 bg-white/10"></div>
+            <div>
+              <div class="text-xl font-serif-title font-bold text-gold-400">
+                95%
+              </div>
+              <div
+                data-i18n="stat-results"
+                class="text-[10px] uppercase tracking-wider text-beige-200/60"
+              >
+                A* / A Natijalar
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section
+      id="about"
+      class="py-24 relative border-t border-white/5 bg-navy-900/50"
+    >
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal reveal-fade-up">
+          <span
+            data-i18n="about-sub"
+            class="text-gold-500 text-xs tracking-[0.3em] uppercase font-semibold"
+            >Professional Mentor</span
+          >
+          <h2
+            data-i18n="about-title"
+            class="font-serif-title text-3xl md:text-5xl font-bold text-white mt-2"
+          >
+            Teacher Abduraufxon Kim o'zi?
+          </h2>
+        </div>
+
+        <!-- items-center qo'shildi: rasm va matn endi doim bir-biriga nisbatan markazlashadi -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <!-- Rasm bloki -->
+          <div class="lg:col-span-5 reveal reveal-fade-left">
+            <div
+              class="relative rounded-2xl overflow-hidden border border-white/10 shadow-2xl group max-h-[520px]"
+            >
+              <img
+                src="/second.png"
+                alt="Tr. Abduraufxon Xalimxonov"
+                class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700"
+              />
+              <div class="absolute inset-0 bg-navy-900/20"></div>
+            </div>
+          </div>
+
+          <!-- Matn bloki -->
+          <div class="lg:col-span-7 space-y-6 reveal reveal-fade-right">
+            <div>
+              <h3 class="font-serif-title text-3xl font-bold text-white">
+                Tr. Abduraufxon Xalimxonov
+              </h3>
+              <p
+                data-i18n="about-role"
+                class="text-gold-400 font-medium text-sm mt-1"
+              >
+                Xalqaro A-Level Eksperti va Chemistry A-Level kitoblari muallifi
+              </p>
+            </div>
+
+            <p
+              data-i18n="about-bio"
+              class="text-beige-200/80 leading-relaxed text-sm md:text-base font-light"
+            >
+              Kimyo fanidan xalqaro sertifikatlarga o‘qituvchi va
+              abituriyentlarni tayyorlab kelaman. Hozirda Xalqaro A-Level
+              boʻyicha oʻqituvchi va abituriyentlarni noldan va intensiv tarzda
+              onlayn tayyorlayman.
+            </p>
+
+            <div
+              class="glass-panel p-6 rounded-2xl border-l-4 border-l-gold-500 my-6 hover:translate-x-2 transition-transform"
+            >
+              <i
+                class="fa-solid fa-quote-left text-gold-500 text-2xl mb-2 opacity-60"
+              ></i>
+              <p
+                data-i18n="about-quote"
+                class="font-serif-title text-lg italic text-white leading-relaxed"
+              >
+                "Har bir oʻquvchida imtihon qoʻrquvlari boʻlishi mumkin. Ammo
+                ularning barchasida bir umumiylik bor — bu takrorlash ilmidir.
+                Hammasi bir ishni qayta-qayta qilishingizga bogʻliq. Zero,
+                takrorlash - bilimning onasidir."
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-24 border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal reveal-fade-up">
+          <span
+            data-i18n="courses-sub"
+            class="text-gold-500 text-xs tracking-[0.3em] uppercase font-semibold"
+            >Kurslarimiz boʻyicha maxsus dasturlar</span
+          >
+          <h2
+            data-i18n="courses-title"
+            class="font-serif-title text-3xl md:text-5xl font-bold text-white mt-2"
+          >
+            A-LEVEL KURSLARI
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Course 1: Kimyo (Ommabop) -->
+          <div
+            class="glass-panel p-8 rounded-2xl flex flex-col justify-between border border-gold-500/50 relative bg-gold-500/10 shadow-2xl shadow-gold-500/5 scale-105 hover:scale-108 transition-all duration-300 reveal reveal-zoom"
+          >
+            <div
+              class="absolute -top-3.5 right-6 bg-gradient-to-r from-gold-500 to-amber-500 text-navy-900 px-4 py-1 rounded-full text-[11px] font-extrabold tracking-widest uppercase shadow-md flex items-center gap-1"
+            >
+              <i class="fa-solid fa-fire text-navy-900"></i>
+              <span data-i18n="badge-popular">OMMABOP</span>
+            </div>
+            <div>
+              <div
+                class="text-xs text-gold-400 font-medium tracking-widest uppercase mb-2"
+              >
+                Cambridge CAIE
+              </div>
+              <h3
+                data-i18n="course-chem-title"
+                class="font-serif-title text-2xl font-bold text-white mb-4"
+              >
+                A-Level Kimyo
+              </h3>
+              <p
+                data-i18n="course-chem-desc"
+                class="text-xs text-beige-200/70 mb-6 leading-relaxed"
+              >
+                Kimyodan xalqaro A-Levelni noldan oʻrganib, 50% ustama olish va
+                nufuzli OTMlarga grant asosida kirish uchun maxsus tayyorlov
+                kursi.
+              </p>
+
+              <ul class="space-y-3 text-xs text-beige-200/80 mb-8">
+                <li class="flex items-center">
+                  <i class="fa-solid fa-check text-gold-500 mr-2"></i>
+                  <span data-i18n="course-feature-1">Maxsus Ingliz Tili</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="fa-solid fa-check text-gold-500 mr-2"></i>
+                  <span data-i18n="course-feature-2"
+                    >Toʻliq Xalqaro Syllabus</span
+                  >
+                </li>
+                <li class="flex items-center">
+                  <i class="fa-solid fa-check text-gold-500 mr-2"></i>
+                  <span data-i18n="course-feature-3"
+                    >Mualliflik Kitoblari va Qoʻllanmalar</span
+                  >
+                </li>
+                <li class="flex items-center">
+                  <i class="fa-solid fa-check text-gold-500 mr-2"></i>
+                  <span data-i18n="course-feature-4"
+                    >Haqiqiy Imtihon Variantlari Tahlili</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <button
+              onclick="openCourseModal('A-Level Kimyo')"
+              data-i18n="btn-details"
+              class="w-full py-3 rounded-xl bg-gold-500 text-navy-900 hover:bg-gold-400 font-semibold text-xs tracking-widest uppercase transition-all duration-300 hover:shadow-lg hover:shadow-gold-500/30"
+            >
+              Batafsil Ma’lumot
+            </button>
+          </div>
+
+          <!-- Course 2: Biologiya -->
+          <div
+            class="glass-panel p-8 rounded-2xl flex flex-col justify-between border border-gold-500/20 hover:border-gold-500/50 hover:-translate-y-2 transition-all duration-300 reveal reveal-zoom"
+          >
+            <div>
+              <div
+                class="text-xs text-gold-400 font-medium tracking-widest uppercase mb-2"
+              >
+                Cambridge CAIE
+              </div>
+              <h3
+                data-i18n="course-bio-title"
+                class="font-serif-title text-2xl font-bold text-white mb-4"
+              >
+                A-Level Biologiya
+              </h3>
+              <p
+                data-i18n="course-bio-desc"
+                class="text-xs text-beige-200/70 mb-6 leading-relaxed"
+              >
+                Biologiyadan xalqaro A-Levelni noldan oʻrganib, 50% ustama olish
+                va nufuzli OTMlarga grant asosida kirish uchun maxsus tayyorlov
+                kursi.
+              </p>
+
+              <ul class="space-y-3 text-xs text-beige-200/80 mb-8">
+                <li class="flex items-center">
+                  <i class="fa-solid fa-check text-gold-500 mr-2"></i>
+                  <span data-i18n="course-feature-1">Maxsus Ingliz Tili</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="fa-solid fa-check text-gold-500 mr-2"></i>
+                  <span data-i18n="course-feature-2"
+                    >Toʻliq Xalqaro Syllabus</span
+                  >
+                </li>
+                <li class="flex items-center">
+                  <i class="fa-solid fa-check text-gold-500 mr-2"></i>
+                  <span data-i18n="course-feature-3"
+                    >Mualliflik Kitoblari va Qoʻllanmalar</span
+                  >
+                </li>
+                <li class="flex items-center">
+                  <i class="fa-solid fa-check text-gold-500 mr-2"></i>
+                  <span data-i18n="course-feature-4"
+                    >Haqiqiy Imtihon Variantlari Tahlili</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <button
+              onclick="openCourseModal('A-Level Biologiya')"
+              data-i18n="btn-details"
+              class="w-full py-3 rounded-xl bg-gold-500 text-navy-900 hover:bg-gold-400 font-semibold text-xs tracking-widest uppercase transition-all duration-300 hover:shadow-lg hover:shadow-gold-500/30"
+            >
+              Batafsil Ma’lumot
+            </button>
+          </div>
+
+          <!-- Course 3: Matematika (Tez Kunda) -->
+          <div
+            class="glass-panel p-8 rounded-2xl flex flex-col justify-between border border-white/10 opacity-80 relative reveal reveal-zoom"
+          >
+            <div
+              data-i18n="badge-coming-soon"
+              class="absolute -top-3 right-6 bg-navy-700 text-beige-200 border border-white/20 px-3 py-1 rounded-full text-[10px] font-bold tracking-widest uppercase"
+            >
+              TEZ KUNDA
+            </div>
+            <div>
+              <div
+                class="text-xs text-beige-200/40 font-medium tracking-widest uppercase mb-2"
+              >
+                Cambridge CAIE
+              </div>
+              <h3
+                data-i18n="course-math-title"
+                class="font-serif-title text-2xl font-bold text-white mb-4"
+              >
+                A-Level Matematika
+              </h3>
+              <p
+                data-i18n="course-math-desc"
+                class="text-xs text-beige-200/70 mb-6 leading-relaxed"
+              >
+                Matematika xalqaro A-Levelni noldan oʻrganib, 50% ustama olish
+                va nufuzli OTMlarga grant asosida kirish uchun maxsus tayyorlov
+                kursi.
+              </p>
+
+              <ul class="space-y-3 text-xs text-beige-200/80 mb-8">
+                <li class="flex items-center">
+                  <i class="fa-solid fa-check text-gold-500 mr-2"></i>
+                  <span data-i18n="course-feature-1">Maxsus Ingliz Tili</span>
+                </li>
+                <li class="flex items-center">
+                  <i class="fa-solid fa-check text-gold-500 mr-2"></i>
+                  <span data-i18n="course-feature-2"
+                    >Toʻliq Xalqaro Syllabus</span
+                  >
+                </li>
+                <li class="flex items-center">
+                  <i class="fa-solid fa-check text-gold-500 mr-2"></i>
+                  <span data-i18n="course-feature-3"
+                    >Mualliflik Kitoblari va Qoʻllanmalar</span
+                  >
+                </li>
+                <li class="flex items-center">
+                  <i class="fa-solid fa-check text-gold-500 mr-2"></i>
+                  <span data-i18n="course-feature-4"
+                    >Haqiqiy Imtihon Variantlari Tahlili</span
+                  >
+                </li>
+              </ul>
+            </div>
+            <button
+              disabled
+              data-i18n="btn-disabled"
+              class="w-full py-3 rounded-xl border border-white/10 text-beige-200/40 cursor-not-allowed font-semibold text-xs tracking-widest uppercase"
+            >
+              Tez Kunda Ochiladi
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Books Section -->
+    <section id="books" class="py-24 border-t border-white/5">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal reveal-fade-up">
+          <span
+            data-i18n="books-sub"
+            class="text-gold-500 text-xs tracking-[0.3em] uppercase font-semibold"
+            >Mualliflik Nashrlari</span
+          >
+          <h2
+            data-i18n="books-title"
+            class="font-serif-title text-3xl md:text-5xl font-bold text-white mt-2"
+          >
+            MUALLIF KUTUBXONASI
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          <!-- Book 1: Chemistry -->
+          <!-- Book 1: Chemistry -->
+          <!-- Book 1: Chemistry -->
+          <div
+            class="glass-panel p-8 rounded-2xl flex flex-col md:flex-row items-center gap-8 hover:border-gold-500/40 transition-all duration-300 reveal reveal-fade-left"
+          >
+            <div class="book-container w-44 h-64 flex-shrink-0">
+              <div
+                class="book-3d w-full h-full bg-navy-800 rounded-r-md border-l-4 border-gold-400 flex flex-col justify-between text-white shadow-2xl relative overflow-hidden"
+              >
+                <img
+                  src="book.jpg"
+                  alt="A-Level Chemistry Book"
+                  class="absolute inset-0 w-full h-full object-cover opacity-100 rounded-r-md"
+                />
+              </div>
+            </div>
+            <div class="space-y-3">
+              <span
+                data-i18n="book-status-available"
+                class="text-[10px] uppercase tracking-widest px-2.5 py-1 rounded bg-gold-500/20 text-gold-400 border border-gold-500/30"
+                >Mavjud Nashr</span
+              >
+              <h3 class="font-serif-title text-xl font-bold text-white">
+                A-Level Chemistry Paper 1
+              </h3>
+
+              <p
+                data-i18n="book-chem-desc"
+                class="text-xs text-beige-200/70 leading-relaxed"
+              >
+                Yangi syllabus asosidagi Cambridge AS and A-Level "Chemistry
+                Paper 1" kitobi.
+                <strong class="text-white">2012–2025</strong> yillardagi
+                mavzulashgan savollar, fizik va anorganik kimyoning dastlabki 12
+                ta mavzusi. Hajmi: <strong class="text-white">384 bet</strong>.
+              </p>
+
+              <div class="pt-2">
+                <a
+                  href="https://t.me/ALevelRecord_Ulugbek"
+                  target="_blank"
+                  data-i18n="btn-order"
+                  class="inline-block px-6 py-2.5 rounded-lg bg-gold-500 text-navy-900 text-xs font-bold uppercase tracking-wider hover:bg-gold-400 transition-all duration-300 hover:scale-105"
+                  >Buyurtma Berish</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Book 2: Biology (Tez Kunda) -->
+          <div
+            class="glass-panel p-8 rounded-2xl flex flex-col md:flex-row items-center gap-8 opacity-80 reveal reveal-fade-right"
+          >
+            <div class="book-container w-44 h-64 flex-shrink-0">
+              <div
+                class="book-3d w-full h-full bg-gradient-to-br from-navy-700 via-navy-800 to-navy-900 rounded-r-md border-l-4 border-emerald-500 p-4 flex flex-col justify-between text-white shadow-2xl relative overflow-hidden"
+              >
+                <div
+                  class="relative z-10 text-[9px] uppercase tracking-widest text-emerald-400"
+                >
+                  A-Level Biology
+                </div>
+                <div class="relative z-10">
+                  <h4 class="font-serif-title text-lg font-bold leading-tight">
+                    A-LEVEL BIOLOGY
+                  </h4>
+                </div>
+                <div class="relative z-10 text-[8px] text-emerald-400">
+                  Coming Soon
+                </div>
+              </div>
+            </div>
+            <div class="space-y-3">
+              <span
+                data-i18n="book-status-soon"
+                class="text-[10px] uppercase tracking-widest px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30"
+                >Tez Kunda Nashr Etiladi</span
+              >
+              <h3 class="font-serif-title text-xl font-bold text-white/90">
+                A-Level Biology
+              </h3>
+              <p
+                data-i18n="book-bio-desc"
+                class="text-xs text-beige-200/60 leading-relaxed"
+              >
+                Biologiya fanining eng murakkab mavzulari, xalqaro imtihon
+                standartlariga mos atamalar va tayyor Mark Scheme kalitlarini
+                o'z ichiga oluvchi yangi kitob.
+              </p>
+              <div class="pt-2">
+                <button
+                  disabled
+                  data-i18n="badge-coming-soon"
+                  class="px-6 py-2.5 rounded-lg bg-navy-700 text-beige-200/40 text-xs font-semibold uppercase cursor-not-allowed border border-white/10"
+                >
+                  Tez Kunda
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Namunaviy Darslar Section -->
+    <section
+      id="resources"
+      class="py-24 border-t border-white/5 bg-navy-900/30"
+    >
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="text-center max-w-3xl mx-auto mb-16 reveal reveal-fade-up">
+          <span
+            data-i18n="res-sub"
+            class="text-gold-500 text-xs tracking-[0.3em] uppercase font-semibold"
+            >Bepul</span
+          >
+          <h2
+            data-i18n="res-title"
+            class="font-serif-title text-3xl md:text-5xl font-bold text-white mt-2"
+          >
+            NAMUNAVIY DARSLAR
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- 1-DARS -->
+          <div
+            class="glass-panel p-6 rounded-2xl border border-gold-500/30 shadow-xl flex flex-col justify-between space-y-6 hover:border-gold-500/60 transition-all duration-300 reveal reveal-fade-left"
+          >
+            <div>
+              <div
+                class="rounded-xl overflow-hidden bg-navy-900/80 mb-6 flex justify-center min-h-[300px]"
+              >
+                <script
+                  async
+                  src="https://telegram.org/js/telegram-widget.js?22"
+                  data-telegram-post="ALevelRecord/338"
+                  data-width="100%"
+                ></script>
+              </div>
+
+              <div
+                class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-gold-500/30 bg-gold-500/10 text-gold-400 text-xs tracking-widest uppercase font-medium mb-3"
+              >
+                <i class="fa-solid fa-play text-[10px]"></i>
+                <span data-i18n="lesson-1-tag">Maxsus Dars (1-Qism)</span>
+              </div>
+
+              <h3
+                data-i18n="lesson-1-title"
+                class="font-serif-title text-xl font-bold text-white mb-3"
+              >
+                Ingliz tilini bilmay noldan A-Level'ga tayyorlanish
+              </h3>
+
+              <p
+                data-i18n="lesson-1-desc"
+                class="text-beige-200/70 text-xs font-light leading-relaxed mb-4"
+              >
+                Ingliz tili darajasi yuqori bo'lmagan o'quvchilar uchun Xalqaro
+                A-Level dasturini noldan muvaffaqiyatli o'zlashtirish
+                yo'riqnomasi.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-white/5">
+              <a
+                href="https://t.me/ALevelRecord/338"
+                target="_blank"
+                class="inline-flex items-center justify-center w-full py-3 rounded-xl bg-gold-500 text-navy-900 font-bold text-xs uppercase tracking-wider hover:bg-gold-400 transition-all hover:scale-102"
+              >
+                <i class="fa-brands fa-telegram text-base mr-2"></i>
+                <span data-i18n="btn-view-tg">Telegramda Ko'rish</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- 2-DARS -->
+          <div
+            class="glass-panel p-6 rounded-2xl border border-gold-500/30 shadow-xl flex flex-col justify-between space-y-6 hover:border-gold-500/60 transition-all duration-300 reveal reveal-fade-right"
+          >
+            <div>
+              <div
+                class="rounded-xl overflow-hidden bg-navy-900/80 mb-6 flex justify-center min-h-[300px]"
+              >
+                <script
+                  async
+                  src="https://telegram.org/js/telegram-widget.js?22"
+                  data-telegram-post="ALevelRecord/353"
+                  data-width="100%"
+                ></script>
+              </div>
+
+              <div
+                class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-gold-500/30 bg-gold-500/10 text-gold-400 text-xs tracking-widest uppercase font-medium mb-3"
+              >
+                <i class="fa-solid fa-play text-[10px]"></i>
+                <span data-i18n="lesson-2-tag">Maxsus Dars (2-Qism)</span>
+              </div>
+
+              <h3
+                data-i18n="lesson-2-title"
+                class="font-serif-title text-xl font-bold text-white mb-3"
+              >
+                Ingliz tilini bilmay noldan A-Level'ga tayyorlanish
+              </h3>
+
+              <p
+                data-i18n="lesson-2-desc"
+                class="text-beige-200/70 text-xs font-light leading-relaxed mb-4"
+              >
+                A-Level darslarida uchraydigan tushunchalarni o'zbek tilidagi
+                analoglar bilan tushunish va imtihon texnikalarini
+                rivojlantirish.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-white/5">
+              <a
+                href="https://t.me/ALevelRecord/353"
+                target="_blank"
+                class="inline-flex items-center justify-center w-full py-3 rounded-xl bg-gold-500 text-navy-900 font-bold text-xs uppercase tracking-wider hover:bg-gold-400 transition-all hover:scale-102"
+              >
+                <i class="fa-brands fa-telegram text-base mr-2"></i>
+                <span data-i18n="btn-view-tg">Telegramda Ko'rish</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- 3-DARS: Paper 5 -->
+          <div
+            class="glass-panel p-6 rounded-2xl border border-gold-500/30 shadow-xl flex flex-col justify-between space-y-6 hover:border-gold-500/60 transition-all duration-300 reveal reveal-fade-left"
+          >
+            <div>
+              <div
+                class="rounded-xl overflow-hidden bg-navy-900/80 mb-6 flex justify-center min-h-[300px]"
+              >
+                <script
+                  async
+                  src="https://telegram.org/js/telegram-widget.js?22"
+                  data-telegram-post="ALevelRecord/478"
+                  data-width="100%"
+                ></script>
+              </div>
+
+              <div
+                class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-gold-500/30 bg-gold-500/10 text-gold-400 text-xs tracking-widest uppercase font-medium mb-3"
+              >
+                <i class="fa-solid fa-play text-[10px]"></i>
+                <span data-i18n="lesson-special-tag">Maxsus Dars</span>
+              </div>
+
+              <h3
+                data-i18n="lesson-3-title"
+                class="font-serif-title text-xl font-bold text-white mb-3"
+              >
+                Paper 5: Yozma ishdan maksimum ball sirlari
+              </h3>
+
+              <p
+                data-i18n="lesson-3-desc"
+                class="text-beige-200/70 text-xs font-light leading-relaxed mb-4"
+              >
+                A-Level imtihonlarining amaliy va tahliliy Paper 5 bo'limida
+                maksimal ball to'plash strategiyalari va xatolarni chetlab
+                o'tish usullari.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-white/5">
+              <a
+                href="https://t.me/ALevelRecord/478"
+                target="_blank"
+                class="inline-flex items-center justify-center w-full py-3 rounded-xl bg-gold-500 text-navy-900 font-bold text-xs uppercase tracking-wider hover:bg-gold-400 transition-all hover:scale-102"
+              >
+                <i class="fa-brands fa-telegram text-base mr-2"></i>
+                <span data-i18n="btn-view-tg">Telegramda Ko'rish</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- 4-DARS: Paper 2 -->
+          <div
+            class="glass-panel p-6 rounded-2xl border border-gold-500/30 shadow-xl flex flex-col justify-between space-y-6 hover:border-gold-500/60 transition-all duration-300 reveal reveal-fade-right"
+          >
+            <div>
+              <div
+                class="rounded-xl overflow-hidden bg-navy-900/80 mb-6 flex justify-center min-h-[300px]"
+              >
+                <script
+                  async
+                  src="https://telegram.org/js/telegram-widget.js?22"
+                  data-telegram-post="ALevelRecord/472"
+                  data-width="100%"
+                ></script>
+              </div>
+
+              <div
+                class="inline-flex items-center space-x-2 px-3 py-1 rounded-full border border-gold-500/30 bg-gold-500/10 text-gold-400 text-xs tracking-widest uppercase font-medium mb-3"
+              >
+                <i class="fa-solid fa-play text-[10px]"></i>
+                <span data-i18n="lesson-special-tag">Maxsus Dars</span>
+              </div>
+
+              <h3
+                data-i18n="lesson-4-title"
+                class="font-serif-title text-xl font-bold text-white mb-3"
+              >
+                Paper 2: Yozma ishdan maksimum ball sirlari
+              </h3>
+
+              <p
+                data-i18n="lesson-4-desc"
+                class="text-beige-200/70 text-xs font-light leading-relaxed mb-4"
+              >
+                Paper 2 yozma imtihonida nazariy bilimlarni to'g'ri bayon etish
+                va strukturaviy savollarga aniq javob berish yo'llari.
+              </p>
+            </div>
+
+            <div class="pt-4 border-t border-white/5">
+              <a
+                href="https://t.me/ALevelRecord/472"
+                target="_blank"
+                class="inline-flex items-center justify-center w-full py-3 rounded-xl bg-gold-500 text-navy-900 font-bold text-xs uppercase tracking-wider hover:bg-gold-400 transition-all hover:scale-102"
+              >
+                <i class="fa-brands fa-telegram text-base mr-2"></i>
+                <span data-i18n="btn-view-tg">Telegramda Ko'rish</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact CTA -->
+    <section
+      id="contact"
+      class="py-24 relative border-t border-gold-500/20 bg-gradient-to-b from-navy-900 to-navy-800"
+    >
+      <div class="max-w-5xl mx-auto px-6 md:px-12 reveal reveal-fade-up">
+        <div
+          class="glass-panel p-10 md:p-16 rounded-3xl border border-gold-500/30 text-center relative overflow-hidden"
+        >
+          <span
+            data-i18n="cta-sub"
+            class="text-gold-500 text-xs tracking-[0.3em] uppercase font-semibold"
+          >
+            Kurslarimiz sizga ma'qulmi?
+          </span>
+          <h2
+            data-i18n="cta-title"
+            class="font-serif-title text-3xl md:text-5xl font-bold text-white mt-3 mb-10"
+          >
+            Kursga qo'shilish va admin bilan bog'lanish uchun
+          </h2>
+
+          <div class="relative max-w-sm mx-auto inline-block w-full">
+            <a
+              href="https://t.me/abduraufxon_adminbot"
+              target="_blank"
+              data-i18n="cta-btn"
+              class="block w-full py-4 rounded-xl bg-gradient-to-r from-gold-500 to-gold-600 text-navy-900 font-bold text-sm uppercase tracking-wider hover:shadow-lg hover:shadow-gold-500/20 transition-all duration-300 text-center relative hover:scale-105"
+            >
+              Botdan ro'yxatdan o'ting
+            </a>
+
+            <div
+              class="absolute -bottom-6 right-6 text-gold-400 text-3xl md:text-4xl pointer-events-none z-20 animate-tap"
+            >
+              <i class="fa-solid fa-hand-pointer"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+      class="py-16 border-t border-gold-500/20 bg-navy-900/90 relative z-10 text-xs text-beige-200/70"
+    >
+      <div
+        class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-12"
+      >
+        <!-- Col 1 -->
+        <div class="space-y-3">
+          <span class="font-serif-title text-xl font-bold text-white block">
+            Tr. Abduraufxon Xalimxonov
+          </span>
+          <p
+            data-i18n="footer-about"
+            class="text-beige-200/60 leading-relaxed text-xs"
+          >
+            Xalqaro sertifikat GRE, SAT va A-Level boʻyicha ekspert va akademik
+            mentor.
+          </p>
+        </div>
+
+        <!-- Col 2 -->
+        <div>
+          <h4
+            data-i18n="footer-title-links"
+            class="text-gold-400 font-semibold uppercase tracking-wider text-xs mb-4"
+          >
+            Bo'limlar
+          </h4>
+          <ul class="space-y-2.5">
+            <li>
+              <a
+                href="#about"
+                data-i18n="nav-about"
+                class="hover:text-gold-400 transition-colors"
+                >O‘qituvchi Haqida</a
+              >
+            </li>
+            <li>
+              <a
+                href="#courses"
+                data-i18n="nav-courses"
+                class="hover:text-gold-400 transition-colors"
+                >Kurslar Dasturi</a
+              >
+            </li>
+            <li>
+              <a
+                href="#books"
+                data-i18n="nav-books"
+                class="hover:text-gold-400 transition-colors"
+                >Kitoblar</a
+              >
+            </li>
+            <li>
+              <a
+                href="#resources"
+                data-i18n="nav-resources"
+                class="hover:text-gold-400 transition-colors"
+                >Namunaviy Darslar</a
+              >
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 3 -->
+        <div>
+          <h4
+            data-i18n="footer-title-contact"
+            class="text-gold-400 font-semibold uppercase tracking-wider text-xs mb-4"
+          >
+            Bog‘lanish
+          </h4>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-envelope text-gold-500"></i>
+              <a
+                href="mailto:abduraufxonxalimxonov@gmail.com"
+                class="hover:text-gold-400 transition-colors break-all"
+              >
+                abduraufxonxalimxonov@gmail.com
+              </a>
+            </li>
+            <li class="flex items-center gap-2">
+              <i class="fa-solid fa-phone text-gold-500"></i>
+              <a
+                href="tel:+998950452730"
+                class="hover:text-gold-400 transition-colors"
+              >
+                +998 (95) 045-27-30
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Col 4 -->
+        <div>
+          <h4
+            data-i18n="footer-title-social"
+            class="text-gold-400 font-semibold uppercase tracking-wider text-xs mb-4"
+          >
+            Ijtimoiy Tarmoqlar
+          </h4>
+          <div class="flex items-center gap-3 text-base">
+            <a
+              href="https://t.me/ALevelRecord"
+              target="_blank"
+              class="w-10 h-10 rounded-xl bg-navy-800 border border-gold-500/20 flex items-center justify-center text-white hover:border-gold-500 hover:text-gold-400 hover:scale-110 transition-all"
+              aria-label="Telegram"
+            >
+              <i class="fa-brands fa-telegram"></i>
+            </a>
+            <a
+              href="https://www.instagram.com/harrington_academy?obrf=OXpjY2Iwd3lxZGs3&utm_source=qr"
+              target="_blank"
+              class="w-10 h-10 rounded-xl bg-navy-800 border border-gold-500/20 flex items-center justify-center text-white hover:border-gold-500 hover:text-gold-400 hover:scale-110 transition-all"
+              aria-label="Instagram"
+            >
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a
+              href="https://youtube.com/@alevelrecord?si=H6kXjV5zGbg3G5Oa"
+              target="_blank"
+              class="w-10 h-10 rounded-xl bg-navy-800 border border-gold-500/20 flex items-center justify-center text-white hover:border-gold-500 hover:text-gold-400 hover:scale-110 transition-all"
+              aria-label="YouTube"
+            >
+              <i class="fa-brands fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div
+        data-i18n="footer-copyright"
+        class="max-w-7xl mx-auto px-6 md:px-12 border-t border-white/10 pt-6 text-center text-[11px] text-beige-200/40"
+      >
+        © 2026 Barcha huquqlar dasturchi tomonidan himoyalangan.
+      </div>
+    </footer>
+
+    <!-- Course Modal -->
+    <div
+      id="course-modal"
+      class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden"
+    >
+      <div
+        class="glass-panel p-8 md:p-10 rounded-3xl max-w-lg w-full relative border border-gold-500/30 shadow-2xl mx-4"
+      >
+        <button
+          onclick="closeCourseModal()"
+          class="absolute top-6 right-6 text-white/50 hover:text-white text-xl"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+
+        <h3
+          id="modal-title"
+          class="font-serif-title text-2xl md:text-3xl font-bold text-white mb-3"
+        >
+          A-Level Kimyo
+        </h3>
+
+        <p
+          id="modal-description"
+          class="text-xs text-beige-200/80 leading-relaxed mb-6"
+        >
+          Kimyodan xalqaro A-Levelni noldan oʻrganib, 50% ustama olish va
+          nufuzli OTMlarga grant asosida kirish uchun maxsus tayyorlov kursi.
+        </p>
+
+        <ul class="space-y-3 text-xs text-beige-200/90 mb-8">
+          <li class="flex items-start gap-2">
+            <i class="fa-solid fa-circle-check text-gold-500 mt-0.5"></i>
+            <span data-i18n="modal-list-1"
+              ><strong>Maxsus Ingliz Tili</strong> (Ingliz tili nol bo‘lgan
+              o‘quvchilarga xalqaro savollarni erkin tarjima qilish va yozma
+              javob yozish ko‘nikmasi boshidan o‘rgatiladi)</span
+            >
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fa-solid fa-circle-check text-gold-500 mt-0.5"></i>
+            <span data-i18n="modal-list-2"
+              ><strong>To‘liq Xalqaro Syllabus</strong> (A-Level imtihonining
+              barcha 5 ta bosqichiga to‘liq tayyorgarlik)</span
+            >
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fa-solid fa-circle-check text-gold-500 mt-0.5"></i>
+            <span data-i18n="modal-list-3"
+              ><strong>Mualliflik Kitoblari va Qo‘llanmalar</strong> (Ustozning
+              shaxsiy kitoblari va tayyor yechimlar to‘plami bilan tizimli
+              ishlash)</span
+            >
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fa-solid fa-circle-check text-gold-500 mt-0.5"></i>
+            <span data-i18n="modal-list-4"
+              ><strong>Haqiqiy Imtihon Variantlari Tahlili</strong> (Past Papers
+              savollari ustida intensiv amaliy mashg‘ulotlar)</span
+            >
+          </li>
+          <li class="flex items-start gap-2">
+            <i class="fa-solid fa-circle-check text-gold-500 mt-0.5"></i>
+            <span data-i18n="modal-list-5"
+              ><strong>50% Ustama va Grantga Tayyorlov</strong> maxsus strategik
+              modullari</span
+            >
+          </li>
+        </ul>
+
+        <a
+          href="https://t.me/abduraufxon_adminbot"
+          target="_blank"
+          data-i18n="modal-btn"
+          class="block w-full py-3.5 rounded-xl bg-gradient-to-r from-gold-500 to-amber-500 text-navy-900 font-bold text-xs tracking-widest uppercase text-center hover:brightness-110 transition-all shadow-lg shadow-gold-500/20"
+        >
+          KURSGA YOZILISH
+        </a>
+      </div>
+    </div>
+
+    <!-- Floating Telegram -->
+    <div class="fixed bottom-6 right-6 md:right-10 z-40 pointer-events-none">
+      <a
+        href="https://t.me/ALevelRecord"
+        target="_blank"
+        class="relative flex items-center justify-center w-14 h-14 bg-[#229ED9] text-white rounded-full shadow-[0_0_25px_rgba(34,158,217,0.6)] transition-all hover:scale-110 group pointer-events-auto"
+        aria-label="Telegram bilan bog'lanish"
+      >
+        <span
+          class="absolute inset-0 rounded-full bg-[#229ED9] opacity-75 animate-ping"
+        ></span>
+        <i
+          class="fa-brands fa-telegram text-3xl relative z-10 group-hover:rotate-12 transition-transform"
+        ></i>
+        <span
+          data-i18n="float-tg-tooltip"
+          class="absolute right-16 bg-navy-800 text-beige-200 text-xs px-3 py-1.5 rounded-lg border border-gold-500/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none whitespace-nowrap shadow-xl"
+        >
+          Savolingiz bormi? Yozing!
+        </span>
+      </a>
+    </div>
+
+    <!-- JavaScript & i18n Logic -->
+    <script>
+      // 1. Tillar Lug'ati (i18n)
+      const translations = {
+        uz: {
+          'preloader-sub': 'A-Level O‘qituvchisi va Akademik Mentor',
+          'nav-logo-sub': 'Maxsus A-level Kurslar',
+          'nav-about': 'O‘qituvchi Haqida',
+          'nav-courses': 'Kurslar',
+          'nav-books': 'Kutubxona',
+          'nav-resources': 'Namunaviy Darslar',
+          'nav-cta': "Kursga qo'shilish",
+          'hero-badge':
+            'Xalqaro sertifikat GRE, SAT va A-Level boʻyicha ekspert',
+          'hero-title-1': 'A-LEVEL BILAN',
+          'hero-title-2': '50% USTAMA VA OTM GRANTIGA ERISHING!',
+          'hero-desc':
+            'Xalqaro A-Level sertifikati — Kimyo va Biologiya fani Oʻqituvchilariga 50% ustama, abituriyentlarga esa Oʻzbekiston va chet eldagi eng nufuzli universitetlarda grant asosida oʻqish imkonini beradi. Darslarimiz va natijalarimiz bilan tanishib, Xalqaro A-Level imtihoniga noldan yoki intensiv tayyorlanishni boshlang!',
+          'hero-btn-courses': 'Kurslarni Ko‘rish',
+          'hero-btn-teacher': "Teacher Abduraufxon Kim o'zi?",
+          'badge-teacher': 'O‘qituvchi',
+          'badge-expert': 'A-Level Eksperti',
+          'stat-exp': 'Yillik<br />Tajriba',
+          'stat-students': 'O‘quvchilar',
+          'stat-results': 'A* / A Natijalar',
+          'about-sub': 'Professional Mentor',
+          'about-title': "Teacher Abduraufxon Kim o'zi?",
+          'about-role':
+            'Xalqaro A-Level Eksperti va Chemistry A-Level kitoblari muallifi',
+          'about-bio':
+            'Kimyo va Biologiya fanidan xalqaro sertifikatlarga o‘qituvchi va abituriyentlarni tayyorlab kelaman. Hozirda Xalqaro A-Level boʻyicha oʻqituvchi va abituriyentlarni noldan va intensiv tarzda onlayn tayyorlayman.',
+          'about-quote':
+            '"Har bir oʻquvchida imtihon qoʻrquvlari boʻlishi mumkin. Ammo ularning barchasida bir umumiylik bor — bu takrorlash ilmidir. Hammasi bir ishni qayta-qayta qilishingizga bogʻliq. Zero, takrorlash - bilimning onasidir."',
+          'courses-sub': 'Kurslarimiz boʻyicha maxsus dasturlar',
+          'courses-title': 'A-LEVEL KURSLARI',
+          'badge-popular': 'OMMABOP',
+          'course-chem-title': 'A-Level Kimyo',
+          'course-chem-desc':
+            'Kimyodan xalqaro A-Levelni noldan oʻrganib, 50% ustama olish va nufuzli OTMlarga grant asosida kirish uchun maxsus tayyorlov kursi.',
+          'course-bio-title': 'A-Level Biologiya',
+          'course-bio-desc':
+            'Biologiyadan xalqaro A-Levelni noldan oʻrganib, 50% ustama olish va nufuzli OTMlarga grant asosida kirish uchun maxsus tayyorlov kursi.',
+          'course-math-title': 'A-Level Matematika',
+          'course-math-desc':
+            'Matematika xalqaro A-Levelni noldan oʻrganib, 50% ustama olish va nufuzli OTMlarga grant asosida kirish uchun maxsus tayyorlov kursi.',
+          'course-feature-1': 'Maxsus Ingliz Tili',
+          'course-feature-2': 'Toʻliq Xalqaro Syllabus',
+          'course-feature-3': 'Mualliflik Kitoblari va Qoʻllanmalar',
+          'course-feature-4': 'Haqiqiy Imtihon Variantlari Tahlili',
+          'btn-details': 'Batafsil Ma’lumot',
+          'badge-coming-soon': 'TEZ KUNDA',
+          'btn-disabled': 'Tez Kunda Ochiladi',
+          'books-sub': 'Mualliflik Nashrlari',
+          'books-title': 'MUALLIF KUTUBXONASI',
+          'book-status-available': 'Mavjud Nashr',
+          'book-status-soon': 'Tez Kunda Nashr Etiladi',
+          'book-chem-desc':
+            "A-Level Kimyo fanidan nazariya, reaksiyalar mexanizmi, misol va masalalar tahlili hamda o'qituvchilar ustamasi uchun tayyorlangan maxsus qo'llanma.",
+          'book-bio-desc':
+            "Biologiya fanining eng murakkab mavzulari, xalqaro imtihon standartlariga mos atamalar va tayyor Mark Scheme kalitlarini o'z ichiga oluvchi yangi kitob.",
+          'btn-order': 'Buyurtma Berish',
+          'res-sub': 'Bepul',
+          'res-title': 'NAMUNAVIY DARSLAR',
+          'lesson-1-tag': 'Maxsus Dars (1-Qism)',
+          'lesson-1-title':
+            "Ingliz tilini bilmay noldan A-Level'ga tayyorlanish",
+          'lesson-1-desc':
+            "Ingliz tili darajasi yuqori bo'lmagan o'quvchilar uchun Xalqaro A-Level dasturini noldan muvaffaqiyatli o'zlashtirish yo'riqnomasi.",
+          'lesson-2-tag': 'Maxsus Dars (2-Qism)',
+          'lesson-2-title':
+            "Ingliz tilini bilmay noldan A-Level'ga tayyorlanish",
+          'lesson-2-desc':
+            "A-Level darslarida uchraydigan tushunchalarni o'zbek tilidagi analoglar bilan tushunish va imtihon texnikalarini rivojlantirish.",
+          'lesson-special-tag': 'Maxsus Dars',
+          'lesson-3-title': 'Paper 5: Yozma ishdan maksimum ball sirlari',
+          'lesson-3-desc':
+            "A-Level imtihonlarining amaliy va tahliliy Paper 5 bo'limida maksimal ball to'plash strategiyalari va xatolarni chetlab o'tish usullari.",
+          'lesson-4-title': 'Paper 2: Yozma ishdan maksimum ball sirlari',
+          'lesson-4-desc':
+            "Paper 2 yozma imtihonida nazariy bilimlarni to'g'ri bayon etish va strukturaviy savollarga aniq javob berish yo'llari.",
+          'btn-view-tg': "Telegramda Ko'rish",
+          'cta-sub': "Kurslarimiz sizga ma'qulmi?",
+          'cta-title': "Kursga qo'shilish va admin bilan bog'lanish uchun",
+          'cta-btn': "Botdan ro'yxatdan o'ting",
+          'footer-about':
+            'Xalqaro sertifikat GRE, SAT va A-Level boʻyicha ekspert va akademik mentor.',
+          'footer-title-links': "Bo'limlar",
+          'footer-title-contact': 'Bog‘lanish',
+          'footer-title-social': 'Ijtimoiy Tarmoqlar',
+          'footer-copyright':
+            '© 2026 Tr. Abduraufxon Xalimxonov. Barcha huquqlar himoyalangan.',
+          'float-tg-tooltip': 'Savolingiz bormi? Yozing!',
+          'modal-list-1':
+            '<strong>Maxsus Ingliz Tili</strong> (Ingliz tili nol bo‘lgan o‘quvchilarga xalqaro savollarni erkin tarjima qilish va yozma javob yozish ko‘nikmasi boshidan o‘rgatiladi)',
+          'modal-list-2':
+            '<strong>To‘liq Xalqaro Syllabus</strong> (A-Level imtihonining barcha 5 ta bosqichiga to‘liq tayyorgarlik)',
+          'modal-list-3':
+            '<strong>Mualliflik Kitoblari va Qo‘llanmalar</strong> (Ustozning shaxsiy kitoblari va tayyor yechimlar to‘plami bilan tizimli ishlash)',
+          'modal-list-4':
+            '<strong>Haqiqiy Imtihon Variantlari Tahlili</strong> (Past Papers savollari ustida intensiv amaliy mashg‘ulotlar)',
+          'modal-list-5':
+            '<strong>50% Ustama va Grantga Tayyorlov</strong> maxsus strategik modullari',
+          'modal-btn': 'KURSGA YOZILISH',
+        },
+        en: {
+          'preloader-sub': 'A-Level Teacher and Academic Mentor',
+          'nav-logo-sub': 'Special A-Level Courses',
+          'nav-about': 'About Teacher',
+          'nav-courses': 'Courses',
+          'nav-books': 'Library',
+          'nav-resources': 'Sample Lessons',
+          'nav-cta': 'Join Course',
+          'hero-badge':
+            'Expert in International Certificates GRE, SAT & A-Level',
+          'hero-title-1': 'ACHIEVE WITH A-LEVEL',
+          'hero-title-2': '50% SALARY BONUS & UNIVERSITY GRANTS!',
+          'hero-desc':
+            'International A-Level certification provides Chemistry and Biology teachers with a 50% salary bonus, and applicants with grant admission opportunities at top universities in Uzbekistan and abroad.',
+          'hero-btn-courses': 'Explore Courses',
+          'hero-btn-teacher': 'Who is Teacher Abduraufxon?',
+          'badge-teacher': 'Educator',
+          'badge-expert': 'A-Level Expert',
+          'stat-exp': 'Years of<br />Experience',
+          'stat-students': 'Students',
+          'stat-results': 'A* / A Results',
+          'about-sub': 'Professional Mentor',
+          'about-title': 'Who is Teacher Abduraufxon?',
+          'about-role':
+            'International A-Level Expert & Author of Chemistry A-Level Books',
+          'about-bio':
+            'I have been preparing teachers and students for international certificates in Chemistry and Biology for over 5 years. Currently, I teach A-Level courses online both from scratch and in intensive formats.',
+          'about-quote':
+            '"Every student may have exam fears, but they all share one thing in common — the art of repetition. Everything depends on doing the same practice over and over. Repetition is the mother of learning."',
+          'courses-sub': 'Special Curriculums for Our Courses',
+          'courses-title': 'A-LEVEL COURSES',
+          'badge-popular': 'POPULAR',
+          'course-chem-title': 'A-Level Chemistry',
+          'course-chem-desc':
+            'Master international A-Level Chemistry from scratch to get a 50% bonus or secure full grants at prestigious universities.',
+          'course-bio-title': 'A-Level Biology',
+          'course-bio-desc':
+            'Master international A-Level Biology from scratch to get a 50% bonus or secure full grants at prestigious universities.',
+          'course-math-title': 'A-Level Mathematics',
+          'course-math-desc':
+            'Master international A-Level Mathematics from scratch to get a 50% bonus or secure full grants at prestigious universities.',
+          'course-feature-1': 'Special Academic English',
+          'course-feature-2': 'Full International Syllabus',
+          'course-feature-3': 'Author Books and Study Guides',
+          'course-feature-4': 'Real Exam Past Paper Analysis',
+          'btn-details': 'Detailed Information',
+          'badge-coming-soon': 'COMING SOON',
+          'btn-disabled': 'Opening Soon',
+          'books-sub': 'Author Publications',
+          'books-title': "AUTHOR'S LIBRARY",
+          'book-status-available': 'Available Edition',
+          'book-status-soon': 'Publishing Soon',
+          'book-chem-desc':
+            'Comprehensive guide for A-Level Chemistry covering theory, reaction mechanisms, problem-solving, and teacher bonus prep.',
+          'book-bio-desc':
+            'Upcoming book covering complex Biology topics, international exam terminology, and complete Mark Scheme keys.',
+          'btn-order': 'Order Now',
+          'res-sub': 'Free Resources',
+          'res-title': 'SAMPLE LESSONS',
+          'lesson-1-tag': 'Special Lesson (Part 1)',
+          'lesson-1-title':
+            'Preparing for A-Level from scratch without English proficiency',
+          'lesson-1-desc':
+            'Step-by-step roadmap to successfully master the International A-Level program for students with beginner English skills.',
+          'lesson-2-tag': 'Special Lesson (Part 2)',
+          'lesson-2-title':
+            'Preparing for A-Level from scratch without English proficiency',
+          'lesson-2-desc':
+            'Understanding A-Level concepts using native language analogies and developing exam techniques.',
+          'lesson-special-tag': 'Special Lesson',
+          'lesson-3-title':
+            'Paper 5: Secrets to Maximum Marks in Practical/Analysis',
+          'lesson-3-desc':
+            'Strategies to maximize score in A-Level Paper 5 analytical exams and methods to avoid common pitfalls.',
+          'lesson-4-title':
+            'Paper 2: Secrets to Maximum Marks in Written Exams',
+          'lesson-4-desc':
+            'How to present theoretical knowledge clearly and answer structured questions according to Mark Schemes.',
+          'btn-view-tg': 'Watch on Telegram',
+          'cta-sub': 'Interested in Our Courses?',
+          'cta-title': 'To Join the Course and Contact Admin',
+          'cta-btn': 'Register via Bot',
+          'footer-about':
+            'Expert in International Certificates GRE, SAT & A-Level and Academic Mentor.',
+          'footer-title-links': 'Navigation',
+          'footer-title-contact': 'Contacts',
+          'footer-title-social': 'Social Media',
+          'footer-copyright':
+            '© 2026 Tr. Abduraufxon Xalimxonov. All rights reserved.',
+          'float-tg-tooltip': 'Have questions? Ask us!',
+          'modal-list-1':
+            '<strong>Special Academic English</strong> (Beginner-friendly language coaching to translate international exam questions comfortably)',
+          'modal-list-2':
+            '<strong>Full International Syllabus</strong> (Comprehensive preparation covering all 5 stages of A-Level exams)',
+          'modal-list-3':
+            "<strong>Author Books & Guides</strong> (Structured practice using author's exclusive textbooks and solution sets)",
+          'modal-list-4':
+            '<strong>Real Past Paper Analysis</strong> (Intensive practical sessions focused on actual exam papers)',
+          'modal-list-5':
+            '<strong>50% Bonus & Grant Preparation</strong> special strategic learning modules',
+          'modal-btn': 'ENROLL IN COURSE',
+        },
+      };
+
+      // Dynamic Course Modal Details
+      const courseModalData = {
+        uz: {
+          'A-Level Kimyo': {
+            title: 'A-Level Kimyo',
+            description:
+              'Kimyodan xalqaro A-Levelni noldan oʻrganib, 50% ustama olish va nufuzli OTMlarga grant asosida kirish uchun maxsus tayyorlov kursi.',
+          },
+          'A-Level Biologiya': {
+            title: 'A-Level Biologiya',
+            description:
+              'Biologiyadan xalqaro A-Levelni noldan oʻrganib, 50% ustama olish va nufuzli OTMlarga grant asosida kirish uchun maxsus tayyorlov kursi.',
+          },
+        },
+        en: {
+          'A-Level Kimyo': {
+            title: 'A-Level Chemistry',
+            description:
+              'Master international A-Level Chemistry from scratch to get a 50% bonus or secure full grants at prestigious universities.',
+          },
+          'A-Level Biologiya': {
+            title: 'A-Level Biology',
+            description:
+              'Master international A-Level Biology from scratch to get a 50% bonus or secure full grants at prestigious universities.',
+          },
+        },
+      };
+
+      let currentLang = 'uz';
+
+      function setLanguage(lang) {
+        currentLang = lang;
+        const elements = document.querySelectorAll('[data-i18n]');
+        elements.forEach((el) => {
+          const key = el.getAttribute('data-i18n');
+          if (translations[lang] && translations[lang][key]) {
+            el.innerHTML = translations[lang][key];
+          }
+        });
+
+        // Lang buttons UI styling
+        const btnUzDesktop = document.getElementById('lang-uz-desktop');
+        const btnEnDesktop = document.getElementById('lang-en-desktop');
+        const btnUzMobile = document.getElementById('lang-uz-mobile');
+        const btnEnMobile = document.getElementById('lang-en-mobile');
+
+        if (lang === 'uz') {
+          btnUzDesktop.className =
+            'px-3 py-1 rounded-full bg-gold-500 text-navy-900 transition-all font-bold';
+          btnEnDesktop.className =
+            'px-3 py-1 rounded-full text-beige-200 hover:text-gold-400 transition-all font-normal';
+
+          btnUzMobile.className =
+            'text-gold-400 font-bold text-xs uppercase px-2 py-0.5 rounded bg-gold-500/10';
+          btnEnMobile.className =
+            'text-beige-200/60 text-xs uppercase px-2 py-0.5';
+        } else {
+          btnUzDesktop.className =
+            'px-3 py-1 rounded-full text-beige-200 hover:text-gold-400 transition-all font-normal';
+          btnEnDesktop.className =
+            'px-3 py-1 rounded-full bg-gold-500 text-navy-900 transition-all font-bold';
+
+          btnUzMobile.className =
+            'text-beige-200/60 text-xs uppercase px-2 py-0.5';
+          btnEnMobile.className =
+            'text-gold-400 font-bold text-xs uppercase px-2 py-0.5 rounded bg-gold-500/10';
+        }
+      }
+
+      // 2. Preloader & Scroll Progress
+      window.addEventListener('load', () => {
+        const preloader = document.getElementById('preloader');
+        setTimeout(() => {
+          preloader.classList.add('fade-out');
+        }, 800);
+
+        initScrollAnimations();
+      });
+
+      window.addEventListener('scroll', () => {
+        const winScroll =
+          document.body.scrollTop || document.documentElement.scrollTop;
+        const height =
+          document.documentElement.scrollHeight -
+          document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById('scroll-progress').style.width = scrolled + '%';
+
+        const nav = document.getElementById('navbar');
+        if (window.scrollY > 50) {
+          nav.classList.add('glass-panel', 'py-3');
+          nav.classList.remove('py-5');
+        } else {
+          nav.classList.remove('glass-panel', 'py-3');
+          nav.classList.add('py-5');
+        }
+      });
+
+      // 3. Mobile Menu Toggle
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      // 4. Modal Functions
+      function openCourseModal(subject) {
+        const modalTitle = document.getElementById('modal-title');
+        const modalDesc = document.getElementById('modal-description');
+
+        const currentSubjectData =
+          courseModalData[currentLang][subject] ||
+          courseModalData['uz'][subject];
+
+        if (currentSubjectData) {
+          modalTitle.innerText = currentSubjectData.title;
+          modalDesc.innerText = currentSubjectData.description;
+        }
+
+        document.getElementById('course-modal').classList.remove('hidden');
+      }
+
+      function closeCourseModal() {
+        document.getElementById('course-modal').classList.add('hidden');
+      }
+
+      // 5. Intersection Observer Scroll Animations
+      function initScrollAnimations() {
+        const reveals = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+              }
+            });
+          },
+          {
+            threshold: 0.15,
+          },
+        );
+
+        reveals.forEach((el) => observer.observe(el));
+      }
+    </script>
+  </body>
+</html>
